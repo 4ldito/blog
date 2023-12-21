@@ -1,41 +1,67 @@
 ---
 import FormattedDate from "./FormattedDate.astro";
-
 const { post } = Astro.props;
-
-console.log(post);
-
 ---
 
 <li>
   <a href={`/${post.slug}/`}>
     <article>
       <img width={720} height={360} src={post.data.heroImage} alt="" />
-      <div>
+      <div class="post-info-container">
         <h4 class="title">{post.data.title}</h4>
-        <p>{post.data.summary}</p>
-        <p class="date">
+        <p class="summary">{post.data.summary}</p>
+        <div class="time-container">
           <FormattedDate date={post.data.pubDate} />
-        </p>
+        </div>
       </div>
     </article>
   </a>
 </li>
 <style>
-  li {
-    background-color: #222433b5;
-    padding: 1rem;
-    border-radius: 10px;
-  }
-
   article {
     display: flex;
     gap: 1rem;
+    background-color: #222433b5;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+  }
+
+  article:hover {
+    background-color: #1a1c30b5;
   }
 
   img {
     width: 100px;
     object-fit: contain;
     height: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  article:hover img {
+    transform: scale(1.1);
+  }
+
+  .post-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .title {
+    font-size: 1.7rem;
+  }
+
+  .summary {
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: normal;
+  }
+
+  .time-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
   }
 </style>
