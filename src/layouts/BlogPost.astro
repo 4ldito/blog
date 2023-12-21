@@ -8,7 +8,7 @@ import { SITE_TITLE } from "../consts";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, id } = Astro.props;
 ---
 
 <html lang="en">
@@ -62,8 +62,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     <main>
       <article>
         <header>
-          <img src={heroImage} alt="Javascript Logo" />
-          <h1>{title}</h1>
+          <img transition:name={`img${id}`} src={heroImage} alt="Javascript Logo" />
+          <h1 transition:name={`title${id}`} transition:animate="fade">{title}</h1>
         </header>
         <div class="prose">
           <div class="date">
