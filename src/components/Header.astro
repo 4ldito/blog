@@ -26,12 +26,13 @@
 <style>
 	header {
 		margin: 0;
-		background-color: #ffffffcc;
+		background-color: #1f1f1f;
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
     display: flex;
     justify-content: center;
     position: fixed;
     width: 100%;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 	}
 	h2 {
@@ -39,30 +40,26 @@
 		font-size: 1em;
 	}
 
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
 	nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-    max-width: 1200px;
+    max-width: 800px;
     width: 100%;
 		padding: 0 1em;
 	}
 	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
+		padding: 1em 0;
+		color: white;
 		border-bottom: 4px solid transparent;
-		text-decoration: none;
+    font-weight: normal;
 	}
 	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
+  		border-bottom-color: var(--accent);
 	}
 	.social-links,
 	.social-links a {
 		display: flex;
+    gap: 2rem;
 	}
 </style>

@@ -36,11 +36,11 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
+  background: rgb(2,0,40);
+  background: linear-gradient(17deg, rgba(2,0,40,1) 13%, rgba(20,20,20,1) 86%);
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	color: rgb(var(--gray-dark));
+	color: white;
 	font-size: 20px;
 	line-height: 1.7;
 }
@@ -57,7 +57,7 @@ h4,
 h5,
 h6 {
 	margin: 0 0 0.5rem 0;
-	color: rgb(var(--black));
+	color: white;
 	line-height: 1.2;
 }
 h1 {
@@ -80,7 +80,8 @@ b {
 	font-weight: 700;
 }
 a {
-	color: var(--accent);
+	color: white;
+  text-decoration: none;
 }
 a:hover {
 	color: var(--accent);
@@ -127,14 +128,6 @@ blockquote {
 hr {
 	border: none;
 	border-top: 1px solid rgb(var(--gray-light));
-}
-@media (max-width: 720px) {
-	body {
-		font-size: 18px;
-	}
-	main {
-		padding: 1em;
-	}
 }
 
 .sr-only {
