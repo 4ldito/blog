@@ -1,79 +1,75 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
-import { SITE_TITLE } from "../consts";
+import Layout from "./Layout.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage, id } = Astro.props;
+const { title, description, pubDate, heroImage, id } = Astro.props;
 ---
 
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={description} />
-    <style>
-      main {
-        width: 100%;
-        max-width: 800px;
-      }
-
-      article {
-        margin-top: 3rem;
-      }
-
-      header {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-      }
-
-      img {
-        width: 200px;
-      }
-
-      h1 {
-        font-size: 3rem;
-      }
-
-      .prose {
-        width: 720px;
-        max-width: calc(100% - 2em);
-        margin: auto;
-        padding: 1em;
-        color: #fff;
-      }
-
-      .date {
-        display: flex;
-        justify-content: flex-end;
-        margin-bottom: 0.5em; 
-      }
-      .last-updated-on {
-        font-style: italic;
-      }
-    </style>
-  </head>
-
-  <body>
-    <Header />
-    <main>
-      <article>
-        <header>
-          <img transition:name={`img${id}`} src={heroImage} alt="Javascript Logo" />
-          <h1 transition:name={`title${id}`} transition:animate="fade">{title}</h1>
-        </header>
-        <div class="prose">
-          <div class="date">
-            <FormattedDate date={pubDate} />
-          </div>
-          <hr />
-          <slot />
+<Layout>
+  <main>
+    <article>
+      <header>
+        <img
+          transition:name={`img${id}`}
+          src={heroImage}
+          alt="Javascript Logo"
+        />
+        <h1 transition:name={`title${id}`} transition:animate="fade">
+          {title}
+        </h1>
+      </header>
+      <div class="prose">
+        <div class="date">
+          <FormattedDate date={pubDate} />
         </div>
-      </article>
-    </main>
-    <Footer />
-  </body>
-</html>
+        <hr />
+        <slot />
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  main {
+    width: 100%;
+    max-width: 800px;
+  }
+
+  article {
+    margin-top: 3rem;
+  }
+
+  header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  img {
+    width: 200px;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  .prose {
+    width: 720px;
+    max-width: calc(100% - 2em);
+    margin: auto;
+    padding: 1em;
+    color: #fff;
+  }
+
+  .date {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0.5em;
+  }
+  .last-updated-on {
+    font-style: italic;
+  }
+</style>
