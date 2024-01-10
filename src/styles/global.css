@@ -44,6 +44,7 @@ body {
 	font-size: 20px;
 	line-height: 1.7;
 }
+
 main {
 	width: 720px;
 	max-width: calc(100% - 2em);
@@ -144,6 +145,24 @@ hr {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #b4b4b4; 
+}
+
+.warning-container {
+  border-left: 2px solid #F85149;
+  padding-left: 2rem;
+}
+
+.prose p.warning {
+  color: #F85149;
+  margin-bottom: 0;
+}
+
+svg.warning {
+  fill: #F85149;
+}
+
+p {
+  margin: 0;
 }
 
 .sr-only {  

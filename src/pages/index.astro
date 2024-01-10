@@ -12,7 +12,7 @@ const posts = (await getCollection("blog")).sort(
   <main>
     <section>
       <ul>
-        {posts.map((post) => <Post post={post} />)}
+        {posts.map((post) => !post.data.disabled && <Post post={post} />)}
       </ul>
     </section>
   </main>
@@ -23,6 +23,7 @@ const posts = (await getCollection("blog")).sort(
     display: flex;
     justify-content: center;
     width: 960px;
+    min-height: calc(100svh - 296px);
   }
 
   section {

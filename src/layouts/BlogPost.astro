@@ -8,41 +8,23 @@ type Props = CollectionEntry<"blog">["data"];
 
 const { title, description, pubDate, heroImage, id } = Astro.props;
 
-const anim = {
-  old: {
-    name: 'fadeIn',
-    duration: '0.1s',
-    easing: 'linear',
-    fillMode: 'forwards',
-  },
-  new: {
-    name: 'fadeIn',
-    duration: '0.1s',
-    easing: 'linear',
-    fillMode: 'forwards',
-  }
-};
-
-const myFade = {
-  forwards: anim,
-  backwards: anim,
-};
-
 ---
 
 <Layout>
   <main>
-    <article transition:name=`box${id}` transition:animate="none">
+    <article>
       <header>
         <img
           transition:name=`img${id}`
           src={heroImage}
           alt="Technology Logo"
-          transition:animate="none"
         />
-        <h1 transition:name=`title${id}` transition:animate={myFade} >
-          {title}
-        </h1>
+        <div>
+          <h1>
+            {title}
+          </h1>
+          <p>{description}</p>
+        </div>
       </header>
       <div class="prose">
         <div class="date">
