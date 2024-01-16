@@ -6,7 +6,7 @@ const { post } = Astro.props;
 <li>
   <a href={`/post/${post.slug}/`}>
     <article>
-      <img width={720} height={360} src={post.data.heroImage} alt=`${post.data.title} image` transition:name=`img${post.data.id}` />
+      <img width={720} height={360} src={post.data.heroImage} alt=`${post.data.title}` transition:name=`img${post.data.id}` />
       <div class="post-info-container">
         <h4 class="title">{post.data.title}</h4>
         <p class="summary">{post.data.description}</p>
